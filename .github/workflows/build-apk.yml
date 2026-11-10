@@ -24,6 +24,14 @@ jobs:
         with:
           flutter-version: '3.19.0'
           channel: 'stable'
+          cache: true
+
+      - name: Write local.properties
+        working-directory: android_app/android
+        run: |
+          echo "flutter.sdk=$FLUTTER_ROOT" > local.properties
+          echo "flutter.versionCode=1" >> local.properties
+          echo "flutter.versionName=1.0.0" >> local.properties
 
       - name: Get Flutter dependencies
         working-directory: android_app
